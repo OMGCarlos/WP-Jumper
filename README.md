@@ -18,7 +18,6 @@ Features (right now)
 
 Features (soon)
 -------------------------------------------------------------------------------
-* Built in LESS compiler and compressor so you don't have to throw up every time you look at your stylesheets.
 * Mix and match your templates from a repository of win until you get exactly what you want. No code required.
 * Realtime template previewer lets you check your works of art without needing to go into maintenance mode - only you see what you get.
 * A built in console which let's you do everything you can do in the dashboard, by typing it out. Batch create and edit everything.
