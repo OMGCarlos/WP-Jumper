@@ -42,7 +42,7 @@
 				<form method="POST" name="theme-options" id="post">
 
 					<?php //=======================================================================
-					// Security
+					// Security Fields
 					//========================================================================*/ ?>
 					<input class="hidden" type="text" value="TRUE" name="update_settings">
 					<?php wp_nonce_field('@o]5DA\xQpOzR.aK', 'nonce-wp-jumper'); ?>
@@ -54,7 +54,9 @@
 						<div id="post-body" class="metabox-holder columns-1">
 
 							<?php //=======================================================================
-							// Main Navigation Properties
+							// Site Builder Block
+							// 
+							// Grouping of controls which let you build the site
 							//========================================================================*/ ?>
 							<div id="postbox-container-2" class="postbox-container">
 								<div id="normal-sortables" class="meta-box-sortables ui-sortable">
@@ -66,41 +68,63 @@
 											<?php //=======================================================================
 											// Site structure (left side)
 											//========================================================================*/ ?>
-											<div class="site-structure-wrapper">
+											<div id="site-structure-wrapper">
 												<h2>Site Structure</h2>
-												<div class="site-structure">
-													<br>
+												<div id="site-structure">
+													<?php //=======================================================================
+													// Draggable site structure area
+													//========================================================================*/ ?>
+													<p><strong>Drag components around to build your site!</strong></p>
+													<ul id="site-structure-area">
+													</ul>
+
+
+													<?php //=======================================================================
+													// Template adder section
+													// 
+													// These are hardcoded, as WordPress only supports certain pages.
+													//========================================================================*/ ?>
 													<hr>
 													<?php $WP_Jumper->site_structure(); ?>
 													<p><strong>Add a new template to your site.</strong> 
 														<br><small>* You can use the textbox to be more specific (ie selecting "Page" and typing "23" will build "page-23.php", which is used when the viewer visits a page with ID 23).</small></p>
-													<select>
-														<option value="front-page">Front Page</option>
-														<option value="home">Blog</option>
+
+													<select id="site-template-picker">
+														<option value="*">CUSTOM TEMPLATE</option>
+														<option value="home" class="disable-ext">Blog</option>
+														<option value="front-page" class="disable-ext">Front Page</option>
 														<option value="page">Page *</option>
+														<option value="search" class="disable-ext">Search</option>
 														<option value="single">Single *</option>
-														<option value="search">Search</option>
 														<option value="taxonomy">Taxonomy *</option>
 													</select> 
-													<input type="text"> <a class="button">Add Template</a>
+													<input type="text" id="site-template-name"> 
+													<a href="#" id="btn-add-template" class="button">Add Template</a>
+
+													<?php //=======================================================================
+													// Warning Messages
+													//========================================================================*/ ?>
+													<ul class="warnings">
+														<li class="warning-template-exists"><strong>Warning:</strong> The template already exists!</li>
+													</ul>
 												</div>
 											</div>
 
 
 											<?php //=======================================================================
-												// Site dropdowns (right side)
+												// Site Modules (right side)
 												//========================================================================*/ 
 												$files = $WP_Jumper->get_files('../' . str_replace(get_bloginfo('url') . '/', '', get_bloginfo('template_url')) . '/templates/*.php');
 											?>
-											<div class="site-components-wrapper">
-												<h2>Site Components</h2>
-												<div class="site-components">
+											<div id="site-modules-wrapper">
+												<h2>Site Modules</h2>
+												<div id="site-modules">
 
 													<?php //=======================================================================
 													// Available Template Files
 													//========================================================================*/ ?>
-													<p><strong>Available Template Files</strong></p>
-													<select id="wpj-available-templates" class="wpj-full-width" multiple="multiple">
+													<p><strong>Available Modules</strong></p>
+													<select id="available-modules" class="full-width" multiple="multiple">
 														<?php $WP_Jumper->create_options($files); ?>
 													</select>
 
@@ -108,11 +132,19 @@
 													// Target
 													//========================================================================*/ ?>
 													<p><strong>Target Template</strong></p>
-													<select id="wpj-target-templates" class="wpj-full-width">
+													<select id="target-template" class="full-width">
 														<?php $WP_Jumper->available_templates(); ?>
 													</select>
 
-													<p><br><a class="button">Add Files to Template</a></p>
+													<p><br><a class="button" href="#" id="btn-add-modules">Add Module to Template</a></p>
+
+													<?php //=======================================================================
+													// Warning Messages
+													//========================================================================*/ ?>
+													<ul class="warnings">
+														<li class="warning-no-templates-loaded"><strong>Warning:</strong> No templates loaded yet!</li>
+														<li class="warning-no-modules-selected"><strong>Warning:</strong> No modules selected!</li>
+													</ul>
 												</div>
 											</div>
 											<div class="clear"></div>

@@ -22,3 +22,12 @@ Features (soon)
 * Realtime template previewer lets you check your works of art without needing to go into maintenance mode - only you see what you get.
 * A built in console which let's you do everything you can do in the dashboard, by typing it out. Batch create and edit everything.
 * White labeled - Earn even more money as a web developer by taking 20, 30, 40+ hour projects and doing them in a single workday.
+
+Requirements
+-------------------------------------------------------------------------------
+* PHP 5+
+
+Dependencies (included)
+-------------------------------------------------------------------------------
+* jQuery 1.7+ (backend)
+* jQuery UI   (backend)

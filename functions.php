@@ -42,8 +42,18 @@
 	//=============================================================================
 	add_action('admin_enqueue_scripts', 'enqueue_backend_scripts');
 	function enqueue_backend_scripts(){
-		wp_register_style( 'wp-jumper-styles', get_bloginfo( 'template_url' ).'/css/core/backend.css' );
-		wp_enqueue_style( 'wp-jumper-styles' );
+		wp_register_style( 'backend-css', get_bloginfo( 'template_url' ).'/css/core/backend.css' );
+		wp_enqueue_style( 'backend-css' );
+
+		wp_deregister_script( 'jquery' );
+		wp_register_script( 'jquery-1.8.2', get_bloginfo( 'template_url' ).'/js/core/jquery-1.8.2.min.js' );
+		wp_enqueue_script( 'jquery-1.8.2' );
+
+		wp_register_script( 'jquery-ui-1.9.1.custom.min', get_bloginfo( 'template_url' ).'/js/core/jquery-ui-1.9.1.custom.min.js' );
+		wp_enqueue_script( 'jquery-ui-1.9.1.custom.min' );
+
+		wp_register_script( 'backend', get_bloginfo( 'template_url' ).'/js/core/backend.js' );
+		wp_enqueue_script( 'backend' );
 	}
 
 

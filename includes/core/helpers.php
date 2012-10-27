@@ -14,7 +14,7 @@
 		// Outputs the site structure
 		//=============================================================================
 		function site_structure(){
-			
+
 		}
 
 		//=============================================================================
@@ -52,7 +52,7 @@
 			$str = '../' . str_replace(get_bloginfo('url') . '/', '', get_bloginfo('template_url')) . '/templates/';
 			foreach($files as $file){
 				$file = str_replace($str, '', $file);
-				echo '<option value="' . esc_attr($file) . '">' . str_replace('/', ': ', $file) . '</option>';
+				echo '<option class="available-module" value="' . esc_attr($file) . '">' . str_replace('/', ': ', $file) . '</option>';
 			}
 		}
 	}
